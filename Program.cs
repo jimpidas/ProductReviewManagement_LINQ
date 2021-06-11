@@ -26,24 +26,27 @@ namespace ProductReviewManagement_LINQ
 
             };
 
-            //foreach (var list in productReviewList)
-            //{
-            //    Console.WriteLine("ProductID:- " + list.ProducID + " " + "UserID:- " + list.UserID
-            //        + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "isLike:- " + list.isLike);
-            //}
+            
 
             //UC2
             Management management = new Management();
             // management.TopRecords(productReviewList);
 
             //UC3
-            management.SelectedRecords(productReviewList);
+            // management.SelectedRecords(productReviewList);
 
             //UC4
-           // management.RetrieveCountOfRecords(productReviewList);
-            Console.ReadKey();
+            // management.RetrieveCountOfRecords(productReviewList);
+
+            //UC5
+            //management.RetrieveProductID_Review(productReviewList);
+
+            //UC6
+            //management.SkipTop5Records(productReviewList);
+
+            //UC8
+            ProductReviewDatatable data = new ProductReviewDatatable();
+            data.AddToDataTable();
         }
-
-
     }
 }

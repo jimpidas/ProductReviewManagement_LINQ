@@ -17,11 +17,11 @@ namespace ProductReviewManagement_LINQ
             foreach (var list in recordedData)
             {
                 Console.WriteLine("ProductID:- " + list.ProducID + " " + "UserID:- " + list.UserID
-                    + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "isLike:- " + list.isLike);
+                     + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "isLike:- " + list.isLike);
             }
-
         }
 
+        
         public void SelectedRecords(List<ProductReview> listProductReview)
         {
             var recordedData = from productReviews in listProductReview
@@ -49,7 +49,25 @@ namespace ProductReviewManagement_LINQ
             }
         }
 
+        public void RetrieveProductID_Review(List<ProductReview> listProductReview)
+        {
+            var recordedData = listProductReview.Select(x => new { ProductID = x.ProducID, ProductReview = x.Review });
+            foreach(var list in recordedData)
+            {
+                Console.WriteLine("ProductID:- "+list.ProductID + " " + "Review:- "+ list.ProductReview);
+            }
+        }
 
+        public void  SkipTop5Records(List<ProductReview> listProductReview)
+        {
+            var recordedData = (from productReviews in listProductReview select productReviews).Skip(5).ToList();
+
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductID:- " + list.ProducID + " " + "UserID:- " + list.UserID
+                     + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "isLike:- " + list.isLike);
+            }
+        }
     }
-
+    
 }
