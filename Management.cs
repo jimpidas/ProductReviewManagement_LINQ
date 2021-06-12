@@ -7,7 +7,7 @@ namespace ProductReviewManagement_LINQ
 {
     class Management
     {
-        // public readonly DataTable dataTable = new DataTable();
+       
         public void TopRecords(List<ProductReview> listProductReview)
         {
             var recordedData = (from productReviews in listProductReview
@@ -60,8 +60,8 @@ namespace ProductReviewManagement_LINQ
 
         public void  SkipTop5Records(List<ProductReview> listProductReview)
         {
-            var recordedData = (from productReviews in listProductReview select productReviews).Skip(5).ToList();
-
+            
+            var recordedData = (from productReviews in listProductReview select productReviews).Skip(5).ToList(); ;
             foreach (var list in recordedData)
             {
                 Console.WriteLine("ProductID:- " + list.ProducID + " " + "UserID:- " + list.UserID

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ProductReviewManagement_LINQ
 {
@@ -30,23 +31,40 @@ namespace ProductReviewManagement_LINQ
 
             //UC2
             Management management = new Management();
-            // management.TopRecords(productReviewList);
+             management.TopRecords(productReviewList);
 
             //UC3
-            // management.SelectedRecords(productReviewList);
+             management.SelectedRecords(productReviewList);
 
             //UC4
-            // management.RetrieveCountOfRecords(productReviewList);
+             management.RetrieveCountOfRecords(productReviewList);
 
             //UC5
-            //management.RetrieveProductID_Review(productReviewList);
+            management.RetrieveProductID_Review(productReviewList);
 
             //UC6
-            //management.SkipTop5Records(productReviewList);
+            management.SkipTop5Records(productReviewList);
 
             //UC8
             ProductReviewDatatable data = new ProductReviewDatatable();
-            data.AddToDataTable();
+             data.AddToDataTable();
+
+            //UC9
+            ProductReviewDatatable reviewDataTable = new ProductReviewDatatable();
+            DataTable table = reviewDataTable.AddToDataTable();
+            reviewDataTable.DisplayDataTableRecordsWithIsLikeValueTrue(table);
+
+
+            //UC10
+            reviewDataTable.FindAverageRatingOfEachProductID(table);
+
+
+            //UC11
+            reviewDataTable.DisplayDataTableRecordsWithIsLikeValueNice(table);
+
+            //UC12
+            reviewDataTable.RetrievRecordsOfPerticularUserID(table);
         }
+
     }
 }
